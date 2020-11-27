@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RxSwiftViewController" customModule="WKWebView_Rxswift">
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="keyPath" value="RxSwiftViewController"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="progressView" destination="9yl-dK-iep" id="9oN-OG-4fi"/>
+                <outlet property="view" destination="iN0-l3-epB" id="P4p-Ug-fwD"/>
+                <outlet property="wkWebView" destination="0Nh-qI-uGH" id="0Qa-i3-ztJ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="rxSwiftViewController" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Nh-qI-uGH">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <wkWebViewConfiguration key="configuration">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                </wkWebView>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" restorationIdentifier="RxSwiftView" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9yl-dK-iep">
+                    <rect key="frame" x="0.0" y="44" width="414" height="2"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="I8x-af-z55"/>
+                    </constraints>
+                </progressView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="0Nh-qI-uGH" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="6kc-hQ-rnA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0Nh-qI-uGH" secondAttribute="trailing" id="P4g-1A-EOq"/>
+                <constraint firstAttribute="bottom" secondItem="0Nh-qI-uGH" secondAttribute="bottom" id="cFI-ya-j9B"/>
+                <constraint firstItem="9yl-dK-iep" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="w5O-yf-ydw"/>
+                <constraint firstItem="9yl-dK-iep" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="wYy-w1-QIW"/>
+                <constraint firstAttribute="trailing" secondItem="9yl-dK-iep" secondAttribute="trailing" id="xA1-Ut-QeL"/>
+                <constraint firstItem="0Nh-qI-uGH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ymt-16-JuR"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="139" y="151"/>
+        </view>
+    </objects>
+</document>
