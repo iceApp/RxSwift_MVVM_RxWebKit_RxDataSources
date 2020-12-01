@@ -11,6 +11,7 @@ import WebKit
 import RxSwift
 import RxCocoa
 import RxOptional
+import RxWebKit
 
 class RxSwiftViewController: UIViewController {
 
@@ -25,13 +26,13 @@ class RxSwiftViewController: UIViewController {
     }
     
     private func setupWebView() {
-        let lodingObservable = RxSwiftWKWebView.rx.observe(Bool.self, "loading")
-            .filterNil()
+        let lodingObservable = RxSwiftWKWebView.rx.loading
             .share() //ColdなObservableを以下3回subcribe(bind)しているので、3個のストリームが生成するのを防ぐために、share()でHotなObservableに変換してストリームが1回で済むようにしている
 
         // プログレスバーの表示・非表示
         lodingObservable
             .map { return !$0 }
+            .observeOn(MainScheduler.instance)
             .bind(to: RxSwiftProgressView.rx.isHidden)
             .disposed(by: disposeBag)
 
@@ -41,15 +42,16 @@ class RxSwiftViewController: UIViewController {
             .disposed(by: disposeBag)
 
         // NavigationControllerのタイトル表示
-        lodingObservable
-            .map { [weak self] _ in self?.RxSwiftWKWebView.title }
+        RxSwiftWKWebView.rx.title
+            .filterNil()
+            .observeOn(MainScheduler.instance)
             .bind(to: navigationItem.rx.title)
             .disposed(by: disposeBag)
 
         // プログレスバーの進捗アニメーション
-        RxSwiftWKWebView.rx.observe(Double.self, "estimatedProgress")
-            .filterNil()
-            .map { Float($0) }
+        RxSwiftWKWebView.rx.estimatedProgress
+            .map { return Float($0) }
+            .observeOn(MainScheduler.instance)
             .bind(to: RxSwiftProgressView.rx.progress)
             .disposed(by: disposeBag)
 
