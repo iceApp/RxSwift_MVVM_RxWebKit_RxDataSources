@@ -10,16 +10,25 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var kvoViewLink: UIButton!
     @IBOutlet weak var rxSwiftViewLink: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"
-        rxSwiftViewLink.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-    }
-    
 
-    @IBAction func didTapButton(_ sender: Any) {
+        kvoViewLink.addTarget(self, action: #selector(didTapButtonKVO), for: .touchUpInside)
+        rxSwiftViewLink.addTarget(self, action: #selector(didTapButtonRxSwift), for: .touchUpInside)
+    }
+
+    @IBAction func didTapButtonKVO(_ sender: Any) {
+
+        let viewController = KVOViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
+
+    }
+
+    @IBAction func didTapButtonRxSwift(_ sender: Any) {
 
         let viewController = RxSwiftViewController()
         self.navigationController?.pushViewController(viewController, animated: true)

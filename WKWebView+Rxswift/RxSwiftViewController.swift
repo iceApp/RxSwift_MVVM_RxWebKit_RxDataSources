@@ -8,71 +8,53 @@
 
 import UIKit
 import WebKit
+import RxSwift
+import RxCocoa
+import RxOptional
 
-
-// KVOパターン
 class RxSwiftViewController: UIViewController {
 
-
-    @IBOutlet weak var wkWebView: WKWebView!
-    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var RxSwiftProgressView: UIProgressView!
+    @IBOutlet weak var RxSwiftWKWebView: WKWebView!
     
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupwebView()
+        setupWebView()
     }
     
-    deinit {
-        // 監視を解除
-        wkWebView?.removeObserver(self, forKeyPath: "loading")
-        wkWebView?.removeObserver(self, forKeyPath: "estimatedProgress")
-    }
+    private func setupWebView() {
+        let lodingObservable = RxSwiftWKWebView.rx.observe(Bool.self, "loading")
+            .filterNil()
+            .share() //ColdなObservableを以下3回subcribe(bind)しているので、3個のストリームが生成するのを防ぐために、share()でHotなObservableに変換してストリームが1回で済むようにしている
 
-    func setupwebView() {
-        // webView.isLladingの値の変化を監視
-        wkWebView?.addObserver(self, forKeyPath: "loading", options: .new, context: nil)
-        
-        // webView.estimateProgressの値の変化を監視
-        wkWebView?.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
-        
-        let url = URL(string: "https:www.google.com/")
-        let urlRequest = URLRequest(url: url!)
-        wkWebView?.load(urlRequest)
-        progressView?.setProgress(0.1, animated: true)
+        // プログレスバーの表示・非表示
+        lodingObservable
+            .map { return !$0 }
+            .bind(to: RxSwiftProgressView.rx.isHidden)
+            .disposed(by: disposeBag)
+
+        // iPhoneの上部の時計のところのバーの(名称不明)アクティビティーインジゲーター表示制御
+        lodingObservable
+            .bind(to: UIApplication.shared.rx.isNetworkActivityIndicatorVisible)
+            .disposed(by: disposeBag)
+
+        // NavigationControllerのタイトル表示
+        lodingObservable
+            .map { [weak self] _ in self?.RxSwiftWKWebView.title }
+            .bind(to: navigationItem.rx.title)
+            .disposed(by: disposeBag)
+
+        // プログレスバーの進捗アニメーション
+        RxSwiftWKWebView.rx.observe(Double.self, "estimatedProgress")
+            .filterNil()
+            .map { Float($0) }
+            .bind(to: RxSwiftProgressView.rx.progress)
+            .disposed(by: disposeBag)
+
+        guard let url = URL(string: "https://www.google.com/") else { return }
+        let urlRequest = URLRequest(url: url)
+        RxSwiftWKWebView.load(urlRequest)
     }
-    
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "loading" {
-            if !wkWebView.isLoading {
-                // ロード完了時にProgressViewの進捗を0.0（非表示）にする
-                //progressView.setProgress(0.0, animated: false)
-                
-                //　ロード完了時にNavigationTitleに読み込んだページのタイトルをセット
-                navigationItem.title = wkWebView.title
-            }
-        }
-        if keyPath == "estimatedProgress" {
-            // ProgressViewの進捗状態を更新
-            progressView.setProgress(Float(wkWebView.estimatedProgress), animated: true)
-            
-            
-            // estimatedProgressが1.0になったらアニメーションを使って非表示
-            if (self.wkWebView.estimatedProgress >= 1.0) {
-                UIView.animate(withDuration: 0.3,
-                               delay: 0.6,
-                               options: [.curveEaseOut],
-                               animations: { [weak self] in
-                                self?.progressView.alpha = 0.0
-                    }, completion: {
-                        (finished : Bool) in
-                        self.progressView.setProgress(1.0, animated: false)
-                })
-            }
-            
-        }
-    }
-    
 }
-
