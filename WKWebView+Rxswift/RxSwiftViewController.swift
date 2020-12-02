@@ -17,6 +17,8 @@ class RxSwiftViewController: UIViewController {
 
     @IBOutlet weak var RxSwiftProgressView: UIProgressView!
     @IBOutlet weak var RxSwiftWKWebView: WKWebView!
+    @IBOutlet weak var forwardButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     private let disposeBag = DisposeBag()
     
@@ -25,7 +27,19 @@ class RxSwiftViewController: UIViewController {
         setupWebView()
     }
     
+    @IBAction func didTapButtonForward(_ sender: Any) {
+        RxSwiftWKWebView.goForward()
+    }
+
+    @IBAction func didTapButtonBack(_ sender: Any) {
+        RxSwiftWKWebView.goBack()
+    }
+
     private func setupWebView() {
+        RxSwiftWKWebView.allowsBackForwardNavigationGestures = true
+        forwardButton.addTarget(self, action: #selector(didTapButtonForward), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(didTapButtonBack), for: .touchUpInside)
+        
         let lodingObservable = RxSwiftWKWebView.rx.loading
             .share() //ColdなObservableを以下3回subcribe(bind)しているので、3個のストリームが生成するのを防ぐために、share()でHotなObservableに変換してストリームが1回で済むようにしている
 
@@ -55,8 +69,28 @@ class RxSwiftViewController: UIViewController {
             .bind(to: RxSwiftProgressView.rx.progress)
             .disposed(by: disposeBag)
 
+        RxSwiftWKWebView.rx.canGoForward
+            .asDriver(onErrorJustReturn: false)
+            .drive(forwardButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        RxSwiftWKWebView.rx.canGoBack
+            .asDriver(onErrorJustReturn: false)
+            .drive(backButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
         guard let url = URL(string: "https://www.google.com/") else { return }
         let urlRequest = URLRequest(url: url)
         RxSwiftWKWebView.load(urlRequest)
+
+    }
+}
+
+// RxSwiftでbutton.isEnabledのBindTo可能な独自プロパティ追加
+extension Reactive where Base: UIBarButtonItem {
+    var isEnabled: Binder<Bool> {
+        return Binder(base) { button, isEnable in
+            button.isEnabled = isEnable
+        }
     }
 }

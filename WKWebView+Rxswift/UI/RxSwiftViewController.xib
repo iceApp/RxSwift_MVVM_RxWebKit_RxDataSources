@@ -12,6 +12,8 @@
             <connections>
                 <outlet property="RxSwiftProgressView" destination="dAH-Do-uWH" id="nKm-Bk-XwP"/>
                 <outlet property="RxSwiftWKWebView" destination="gHK-DJ-f4Y" id="oHR-s8-WmI"/>
+                <outlet property="backButton" destination="2xO-sc-uaj" id="Y6U-kc-YGG"/>
+                <outlet property="forwardButton" destination="PQF-z4-SNR" id="lXl-2H-pQe"/>
                 <outlet property="view" destination="iN0-l3-epB" id="w3o-Ri-4fv"/>
             </connections>
         </placeholder>
@@ -21,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHK-DJ-f4Y">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="768"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <wkWebViewConfiguration key="configuration">
                         <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -34,19 +36,40 @@
                         <constraint firstAttribute="height" constant="2" id="Zo0-BE-OyW"/>
                     </constraints>
                 </progressView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xO-sc-uaj">
+                    <rect key="frame" x="73.5" y="812" width="17.5" height="50"/>
+                    <state key="normal" image="arrowtriangle.left.fill" catalog="system"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQF-z4-SNR">
+                    <rect key="frame" x="99" y="812" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="sz7-r5-ald"/>
+                        <constraint firstAttribute="height" constant="50" id="vgN-M6-5Ea"/>
+                    </constraints>
+                    <state key="normal" image="arrowtriangle.right.fill" catalog="system"/>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="PQF-z4-SNR" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="2RW-hQ-UoF"/>
                 <constraint firstItem="dAH-Do-uWH" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="4k4-yE-kQL"/>
-                <constraint firstAttribute="bottom" secondItem="gHK-DJ-f4Y" secondAttribute="bottom" id="6Ez-pE-W62"/>
+                <constraint firstItem="PQF-z4-SNR" firstAttribute="height" secondItem="2xO-sc-uaj" secondAttribute="height" id="FYk-8n-8Ep"/>
+                <constraint firstItem="PQF-z4-SNR" firstAttribute="leading" secondItem="2xO-sc-uaj" secondAttribute="trailing" constant="8" id="Ge0-gU-f1c"/>
                 <constraint firstAttribute="trailing" secondItem="dAH-Do-uWH" secondAttribute="trailing" id="Iaa-cH-3kQ"/>
+                <constraint firstItem="gHK-DJ-f4Y" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-50" id="jzF-As-YsT"/>
+                <constraint firstItem="PQF-z4-SNR" firstAttribute="baseline" secondItem="2xO-sc-uaj" secondAttribute="baseline" id="lD4-a6-b0r"/>
                 <constraint firstItem="gHK-DJ-f4Y" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="nKW-nH-gl5"/>
                 <constraint firstItem="gHK-DJ-f4Y" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="sbm-qm-xG1"/>
                 <constraint firstItem="dAH-Do-uWH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tKi-Zj-w8N"/>
                 <constraint firstItem="gHK-DJ-f4Y" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="v9f-rc-cEo"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="PQF-z4-SNR" secondAttribute="trailing" constant="265" id="wXv-N2-EWP"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="139" y="147"/>
         </view>
     </objects>
+    <resources>
+        <image name="arrowtriangle.left.fill" catalog="system" width="128" height="113"/>
+        <image name="arrowtriangle.right.fill" catalog="system" width="128" height="113"/>
+    </resources>
 </document>
