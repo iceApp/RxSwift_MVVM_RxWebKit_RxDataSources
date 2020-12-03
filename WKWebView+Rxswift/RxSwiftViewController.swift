@@ -66,7 +66,7 @@ class RxSwiftViewController: UIViewController {
         RxSwiftWKWebView.rx.estimatedProgress
             .map { return Float($0) }
             .observeOn(MainScheduler.instance)
-            .bind(to: RxSwiftProgressView.rx.progress)
+            .bind(to: RxSwiftProgressView.rx.setProgress)
             .disposed(by: disposeBag)
 
         RxSwiftWKWebView.rx.canGoForward
@@ -91,6 +91,19 @@ extension Reactive where Base: UIBarButtonItem {
     var isEnabled: Binder<Bool> {
         return Binder(base) { button, isEnable in
             button.isEnabled = isEnable
+        }
+    }
+}
+
+// RxSwiftのsetProgressプロパティを追加
+extension Reactive where Base: UIProgressView {
+    var setProgress: Binder<Float> {
+        return Binder(base) { progressView, int in
+            if int > 0.1 {
+                progressView.setProgress(int, animated: true )
+            } else {
+                progressView.setProgress(0.1, animated: false )
+            }
         }
     }
 }
