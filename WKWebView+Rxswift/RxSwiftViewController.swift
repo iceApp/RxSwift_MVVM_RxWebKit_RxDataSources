@@ -15,39 +15,38 @@ import RxWebKit
 
 class RxSwiftViewController: UIViewController {
 
-    @IBOutlet weak var RxSwiftProgressView: UIProgressView!
-    @IBOutlet weak var RxSwiftWKWebView: WKWebView!
-    @IBOutlet weak var forwardButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet private weak var rxSwiftProgressView: UIProgressView!
+    @IBOutlet private weak var rxSwiftWKWebView: WKWebView!
+    @IBOutlet private weak var forwardButton: UIButton!
+    @IBOutlet private weak var backButton: UIButton!
     
     private let disposeBag = DisposeBag()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
     }
-    
-    @IBAction func didTapButtonForward(_ sender: Any) {
-        RxSwiftWKWebView.goForward()
+
+    @IBAction private func didTapButtonForward(_ sender: Any) {
+        rxSwiftWKWebView.goForward()
     }
 
-    @IBAction func didTapButtonBack(_ sender: Any) {
-        RxSwiftWKWebView.goBack()
+    @IBAction private func didTapButtonBack(_ sender: Any) {
+        rxSwiftWKWebView.goBack()
     }
 
     private func setupWebView() {
-        RxSwiftWKWebView.allowsBackForwardNavigationGestures = true
+        rxSwiftWKWebView.allowsBackForwardNavigationGestures = true
         forwardButton.addTarget(self, action: #selector(didTapButtonForward), for: .touchUpInside)
         backButton.addTarget(self, action: #selector(didTapButtonBack), for: .touchUpInside)
-        
-        let lodingObservable = RxSwiftWKWebView.rx.loading
+
+        let lodingObservable = rxSwiftWKWebView.rx.loading
             .share() //ColdなObservableを以下3回subcribe(bind)しているので、3個のストリームが生成するのを防ぐために、share()でHotなObservableに変換してストリームが1回で済むようにしている
 
         // プログレスバーの表示・非表示
         lodingObservable
             .map { return !$0 }
             .observeOn(MainScheduler.instance)
-            .bind(to: RxSwiftProgressView.rx.isHidden)
+            .bind(to: rxSwiftProgressView.rx.isHidden)
             .disposed(by: disposeBag)
 
         // iPhoneの上部の時計のところのバーの(名称不明)アクティビティーインジゲーター表示制御
@@ -56,32 +55,32 @@ class RxSwiftViewController: UIViewController {
             .disposed(by: disposeBag)
 
         // NavigationControllerのタイトル表示
-        RxSwiftWKWebView.rx.title
+        rxSwiftWKWebView.rx.title
             .filterNil()
             .observeOn(MainScheduler.instance)
             .bind(to: navigationItem.rx.title)
             .disposed(by: disposeBag)
 
         // プログレスバーの進捗アニメーション
-        RxSwiftWKWebView.rx.estimatedProgress
+        rxSwiftWKWebView.rx.estimatedProgress
             .map { return Float($0) }
             .observeOn(MainScheduler.instance)
-            .bind(to: RxSwiftProgressView.rx.setProgress)
+            .bind(to: rxSwiftProgressView.rx.setProgress)
             .disposed(by: disposeBag)
 
-        RxSwiftWKWebView.rx.canGoForward
+        rxSwiftWKWebView.rx.canGoForward
             .asDriver(onErrorJustReturn: false)
             .drive(forwardButton.rx.isEnabled)
             .disposed(by: disposeBag)
-        
-        RxSwiftWKWebView.rx.canGoBack
+
+        rxSwiftWKWebView.rx.canGoBack
             .asDriver(onErrorJustReturn: false)
             .drive(backButton.rx.isEnabled)
             .disposed(by: disposeBag)
-        
+
         guard let url = URL(string: "https://www.google.com/") else { return }
         let urlRequest = URLRequest(url: url)
-        RxSwiftWKWebView.load(urlRequest)
+        rxSwiftWKWebView.load(urlRequest)
 
     }
 }
