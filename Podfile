@@ -6,9 +6,10 @@ platform :ios, '12.0'
 
   # Pods for RxSwift_practice1
   # Comment the next line if you don't want to use
-	target 'WKWebView+Rxswift' do
+	target 'Rxswift+MVVM_RxWebKit_RxDataSources' do
 	    pod 'RxSwift'
 	    pod 'RxCocoa'
 	    pod 'RxOptional'
       pod 'RxWebKit'
+      pod 'RxDataSources'
 end
