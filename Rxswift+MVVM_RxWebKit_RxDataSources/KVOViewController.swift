@@ -19,7 +19,7 @@ class KVOViewController: UIViewController {
         super.viewDidLoad()
         setupwebView()
     }
-    
+
     deinit {
         // 監視を解除
         wkWebView?.removeObserver(self, forKeyPath: "loading")

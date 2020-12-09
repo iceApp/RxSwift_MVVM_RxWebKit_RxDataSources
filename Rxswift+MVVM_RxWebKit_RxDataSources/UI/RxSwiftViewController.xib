@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RxSwiftViewController" customModule="WKWebView_Rxswift" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RxSwiftViewController" customModule="Rxswift_MVVM_WKWebView_TableView" customModuleProvider="target">
             <connections>
                 <outlet property="backButton" destination="2xO-sc-uaj" id="Y6U-kc-YGG"/>
                 <outlet property="forwardButton" destination="PQF-z4-SNR" id="lXl-2H-pQe"/>
@@ -21,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHK-DJ-f4Y">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="846"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="768"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <wkWebViewConfiguration key="configuration">
                         <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -29,17 +31,17 @@
                     </wkWebViewConfiguration>
                 </wkWebView>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dAH-Do-uWH">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="2"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="2"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="Zo0-BE-OyW"/>
                     </constraints>
                 </progressView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xO-sc-uaj">
-                    <rect key="frame" x="73.5" y="846" width="17.5" height="50"/>
+                    <rect key="frame" x="73.5" y="812" width="17.5" height="50"/>
                     <state key="normal" image="arrowtriangle.left.fill" catalog="system"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQF-z4-SNR">
-                    <rect key="frame" x="99" y="846" width="50" height="50"/>
+                    <rect key="frame" x="99" y="812" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="sz7-r5-ald"/>
                         <constraint firstAttribute="height" constant="50" id="vgN-M6-5Ea"/>

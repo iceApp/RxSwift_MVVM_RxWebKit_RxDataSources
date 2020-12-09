@@ -19,7 +19,7 @@ class RxSwiftViewController: UIViewController {
     @IBOutlet private weak var rxSwiftWKWebView: WKWebView!
     @IBOutlet private weak var forwardButton: UIButton!
     @IBOutlet private weak var backButton: UIButton!
-    
+
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()

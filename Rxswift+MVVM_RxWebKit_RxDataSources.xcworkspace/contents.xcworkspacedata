@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:WKWebView+Rxswift.xcodeproj">
+      location = "group:Rxswift+MVVM_RxWebKit_RxDataSources.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

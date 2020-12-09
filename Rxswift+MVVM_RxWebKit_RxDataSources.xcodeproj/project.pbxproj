@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4827AB1579520DE08B1D0696 /* Pods_WKWebView_Rxswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F848E58E7AB1D97CFC029E12 /* Pods_WKWebView_Rxswift.framework */; };
+		3CF4F38096C809A8D983C904 /* Pods_Rxswift_MVVM_RxWebKit_RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6F88F12D73C86CD9853EE6 /* Pods_Rxswift_MVVM_RxWebKit_RxDataSources.framework */; };
+		61639B84257E1963002C6E4C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61639B83257E1963002C6E4C /* SettingsViewModel.swift */; };
+		61639B89257E4703002C6E4C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61639B88257E4703002C6E4C /* SettingsViewController.swift */; };
+		61639B8B257E4794002C6E4C /* SettingsViewCountller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61639B8A257E4794002C6E4C /* SettingsViewCountller.xib */; };
+		61639B8D257F32F6002C6E4C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61639B8C257F32F6002C6E4C /* Default-568h@2x.png */; };
 		6169339A25728E6200A6F506 /* KVOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169339925728E6200A6F506 /* KVOViewController.swift */; };
 		6169339C2572912900A6F506 /* RxSwiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6169339B2572912900A6F506 /* RxSwiftViewController.xib */; };
 		6169339F257A91DA00A6F506 /* SettingsSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169339E257A91DA00A6F506 /* SettingsSectionModel.swift */; };
@@ -23,11 +27,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04ED9D447515124C7B09675C /* Pods-WKWebView+Rxswift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKWebView+Rxswift.debug.xcconfig"; path = "Target Support Files/Pods-WKWebView+Rxswift/Pods-WKWebView+Rxswift.debug.xcconfig"; sourceTree = "<group>"; };
+		1D6F88F12D73C86CD9853EE6 /* Pods_Rxswift_MVVM_RxWebKit_RxDataSources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rxswift_MVVM_RxWebKit_RxDataSources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61639B83257E1963002C6E4C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		61639B88257E4703002C6E4C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = View/SettingsViewController.swift; sourceTree = "<group>"; };
+		61639B8A257E4794002C6E4C /* SettingsViewCountller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewCountller.xib; sourceTree = "<group>"; };
+		61639B8C257F32F6002C6E4C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6169339925728E6200A6F506 /* KVOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVOViewController.swift; sourceTree = "<group>"; };
 		6169339B2572912900A6F506 /* RxSwiftViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RxSwiftViewController.xib; sourceTree = "<group>"; };
 		6169339E257A91DA00A6F506 /* SettingsSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsSectionModel.swift; path = Model/SettingsSectionModel.swift; sourceTree = "<group>"; };
-		61B833B42563BAEF00A092DC /* WKWebView+Rxswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WKWebView+Rxswift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		61B833B42563BAEF00A092DC /* Rxswift+MVVM_RxWebKit_RxDataSources.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rxswift+MVVM_RxWebKit_RxDataSources.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61B833B72563BAEF00A092DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61B833B92563BAEF00A092DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		61B833BB2563BAEF00A092DC /* RxSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwiftViewController.swift; sourceTree = "<group>"; };
@@ -38,8 +46,8 @@
 		61B833CF256D5D8E00A092DC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		61B833D1256DF12400A092DC /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		61B833D3256DF17000A092DC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		9A0866B3ECB366960E6DF2EA /* Pods-WKWebView+Rxswift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKWebView+Rxswift.release.xcconfig"; path = "Target Support Files/Pods-WKWebView+Rxswift/Pods-WKWebView+Rxswift.release.xcconfig"; sourceTree = "<group>"; };
-		F848E58E7AB1D97CFC029E12 /* Pods_WKWebView_Rxswift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WKWebView_Rxswift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7247F986CC320E55DDF92234 /* Pods-Rxswift+MVVM_RxWebKit_RxDataSources.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rxswift+MVVM_RxWebKit_RxDataSources.debug.xcconfig"; path = "Target Support Files/Pods-Rxswift+MVVM_RxWebKit_RxDataSources/Pods-Rxswift+MVVM_RxWebKit_RxDataSources.debug.xcconfig"; sourceTree = "<group>"; };
+		FC98A1EF0D43BA98DECD2B5F /* Pods-Rxswift+MVVM_RxWebKit_RxDataSources.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rxswift+MVVM_RxWebKit_RxDataSources.release.xcconfig"; path = "Target Support Files/Pods-Rxswift+MVVM_RxWebKit_RxDataSources/Pods-Rxswift+MVVM_RxWebKit_RxDataSources.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +56,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61B833D0256D5D8E00A092DC /* WebKit.framework in Frameworks */,
-				4827AB1579520DE08B1D0696 /* Pods_WKWebView_Rxswift.framework in Frameworks */,
+				3CF4F38096C809A8D983C904 /* Pods_Rxswift_MVVM_RxWebKit_RxDataSources.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,10 +66,18 @@
 		3DE6F7326FB36AC463332D3D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				04ED9D447515124C7B09675C /* Pods-WKWebView+Rxswift.debug.xcconfig */,
-				9A0866B3ECB366960E6DF2EA /* Pods-WKWebView+Rxswift.release.xcconfig */,
+				7247F986CC320E55DDF92234 /* Pods-Rxswift+MVVM_RxWebKit_RxDataSources.debug.xcconfig */,
+				FC98A1EF0D43BA98DECD2B5F /* Pods-Rxswift+MVVM_RxWebKit_RxDataSources.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		61639B85257E4621002C6E4C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				61639B83257E1963002C6E4C /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6169339D257A918400A6F506 /* Model */ = {
@@ -75,7 +91,8 @@
 		61B833AB2563BAEF00A092DC = {
 			isa = PBXGroup;
 			children = (
-				61B833B62563BAEF00A092DC /* WKWebView+Rxswift */,
+				61639B8C257F32F6002C6E4C /* Default-568h@2x.png */,
+				61B833B62563BAEF00A092DC /* Rxswift+MVVM_RxWebKit_RxDataSources */,
 				61B833B52563BAEF00A092DC /* Products */,
 				61B833CE256D5D8D00A092DC /* Frameworks */,
 				3DE6F7326FB36AC463332D3D /* Pods */,
@@ -85,14 +102,15 @@
 		61B833B52563BAEF00A092DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				61B833B42563BAEF00A092DC /* WKWebView+Rxswift.app */,
+				61B833B42563BAEF00A092DC /* Rxswift+MVVM_RxWebKit_RxDataSources.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		61B833B62563BAEF00A092DC /* WKWebView+Rxswift */ = {
+		61B833B62563BAEF00A092DC /* Rxswift+MVVM_RxWebKit_RxDataSources */ = {
 			isa = PBXGroup;
 			children = (
+				61639B85257E4621002C6E4C /* ViewModel */,
 				6169339D257A918400A6F506 /* Model */,
 				61B833CB2563D8A500A092DC /* UI */,
 				61B833B72563BAEF00A092DC /* AppDelegate.swift */,
@@ -102,7 +120,7 @@
 				61B833C22563BAF000A092DC /* LaunchScreen.storyboard */,
 				61B833C52563BAF000A092DC /* Info.plist */,
 			);
-			path = "WKWebView+Rxswift";
+			path = "Rxswift+MVVM_RxWebKit_RxDataSources";
 			sourceTree = "<group>";
 		};
 		61B833CB2563D8A500A092DC /* UI */ = {
@@ -111,6 +129,7 @@
 				61B833CC2564045900A092DC /* KVOViewController.xib */,
 				61B833D1256DF12400A092DC /* MainView.xib */,
 				6169339B2572912900A6F506 /* RxSwiftViewController.xib */,
+				61639B8A257E4794002C6E4C /* SettingsViewCountller.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -119,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				61B833CF256D5D8E00A092DC /* WebKit.framework */,
-				F848E58E7AB1D97CFC029E12 /* Pods_WKWebView_Rxswift.framework */,
+				1D6F88F12D73C86CD9853EE6 /* Pods_Rxswift_MVVM_RxWebKit_RxDataSources.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -130,6 +149,7 @@
 				61B833D3256DF17000A092DC /* MainViewController.swift */,
 				6169339925728E6200A6F506 /* KVOViewController.swift */,
 				61B833BB2563BAEF00A092DC /* RxSwiftViewController.swift */,
+				61639B88257E4703002C6E4C /* SettingsViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -137,9 +157,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		61B833B32563BAEF00A092DC /* WKWebView+Rxswift */ = {
+		61B833B32563BAEF00A092DC /* Rxswift+MVVM_RxWebKit_RxDataSources */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 61B833C82563BAF000A092DC /* Build configuration list for PBXNativeTarget "WKWebView+Rxswift" */;
+			buildConfigurationList = 61B833C82563BAF000A092DC /* Build configuration list for PBXNativeTarget "Rxswift+MVVM_RxWebKit_RxDataSources" */;
 			buildPhases = (
 				12816D5ACA0DAA90F0FF1B28 /* [CP] Check Pods Manifest.lock */,
 				61B833B02563BAEF00A092DC /* Sources */,
@@ -152,9 +172,9 @@
 			);
 			dependencies = (
 			);
-			name = "WKWebView+Rxswift";
+			name = "Rxswift+MVVM_RxWebKit_RxDataSources";
 			productName = "WKWebView+Rxswift";
-			productReference = 61B833B42563BAEF00A092DC /* WKWebView+Rxswift.app */;
+			productReference = 61B833B42563BAEF00A092DC /* Rxswift+MVVM_RxWebKit_RxDataSources.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -172,7 +192,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 61B833AF2563BAEF00A092DC /* Build configuration list for PBXProject "WKWebView+Rxswift" */;
+			buildConfigurationList = 61B833AF2563BAEF00A092DC /* Build configuration list for PBXProject "Rxswift+MVVM_RxWebKit_RxDataSources" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -185,7 +205,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				61B833B32563BAEF00A092DC /* WKWebView+Rxswift */,
+				61B833B32563BAEF00A092DC /* Rxswift+MVVM_RxWebKit_RxDataSources */,
 			);
 		};
 /* End PBXProject section */
@@ -195,10 +215,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61639B8B257E4794002C6E4C /* SettingsViewCountller.xib in Resources */,
 				61B833C42563BAF000A092DC /* LaunchScreen.storyboard in Resources */,
 				61B833D2256DF12400A092DC /* MainView.xib in Resources */,
 				6169339C2572912900A6F506 /* RxSwiftViewController.xib in Resources */,
 				61B833CD2564045900A092DC /* KVOViewController.xib in Resources */,
+				61639B8D257F32F6002C6E4C /* Default-568h@2x.png in Resources */,
 				61B833C12563BAF000A092DC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,7 +243,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WKWebView+Rxswift-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Rxswift+MVVM_RxWebKit_RxDataSources-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -234,15 +256,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WKWebView+Rxswift/Pods-WKWebView+Rxswift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Rxswift+MVVM_RxWebKit_RxDataSources/Pods-Rxswift+MVVM_RxWebKit_RxDataSources-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WKWebView+Rxswift/Pods-WKWebView+Rxswift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Rxswift+MVVM_RxWebKit_RxDataSources/Pods-Rxswift+MVVM_RxWebKit_RxDataSources-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WKWebView+Rxswift/Pods-WKWebView+Rxswift-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rxswift+MVVM_RxWebKit_RxDataSources/Pods-Rxswift+MVVM_RxWebKit_RxDataSources-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		616933A0257BA38700A6F506 /* Run swiftlint Script */ = {
@@ -276,6 +298,8 @@
 				6169339A25728E6200A6F506 /* KVOViewController.swift in Sources */,
 				6169339F257A91DA00A6F506 /* SettingsSectionModel.swift in Sources */,
 				61B833D4256DF17000A092DC /* MainViewController.swift in Sources */,
+				61639B84257E1963002C6E4C /* SettingsViewModel.swift in Sources */,
+				61639B89257E4703002C6E4C /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,18 +433,18 @@
 		};
 		61B833C92563BAF000A092DC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04ED9D447515124C7B09675C /* Pods-WKWebView+Rxswift.debug.xcconfig */;
+			baseConfigurationReference = 7247F986CC320E55DDF92234 /* Pods-Rxswift+MVVM_RxWebKit_RxDataSources.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EFWYC79UW2;
-				INFOPLIST_FILE = "WKWebView+Rxswift/Info.plist";
+				INFOPLIST_FILE = "Rxswift+MVVM_RxWebKit_RxDataSources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.m.sasada.WKWebView-Rxswift";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.m.sasada.Rxswift-MVVM-RxWebKit-RxDataSources";
+				PRODUCT_NAME = "Rxswift+MVVM_RxWebKit_RxDataSources";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -428,18 +452,18 @@
 		};
 		61B833CA2563BAF000A092DC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A0866B3ECB366960E6DF2EA /* Pods-WKWebView+Rxswift.release.xcconfig */;
+			baseConfigurationReference = FC98A1EF0D43BA98DECD2B5F /* Pods-Rxswift+MVVM_RxWebKit_RxDataSources.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EFWYC79UW2;
-				INFOPLIST_FILE = "WKWebView+Rxswift/Info.plist";
+				INFOPLIST_FILE = "Rxswift+MVVM_RxWebKit_RxDataSources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.m.sasada.WKWebView-Rxswift";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.m.sasada.Rxswift-MVVM-RxWebKit-RxDataSources";
+				PRODUCT_NAME = "Rxswift+MVVM_RxWebKit_RxDataSources";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -448,7 +472,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		61B833AF2563BAEF00A092DC /* Build configuration list for PBXProject "WKWebView+Rxswift" */ = {
+		61B833AF2563BAEF00A092DC /* Build configuration list for PBXProject "Rxswift+MVVM_RxWebKit_RxDataSources" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				61B833C62563BAF000A092DC /* Debug */,
@@ -457,7 +481,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		61B833C82563BAF000A092DC /* Build configuration list for PBXNativeTarget "WKWebView+Rxswift" */ = {
+		61B833C82563BAF000A092DC /* Build configuration list for PBXNativeTarget "Rxswift+MVVM_RxWebKit_RxDataSources" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				61B833C92563BAF000A092DC /* Debug */,
